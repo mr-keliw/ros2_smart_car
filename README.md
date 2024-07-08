@@ -11,9 +11,9 @@ Use ROS 2 to rebuild the functions of a 4MWD Smart Car Kit for Raspberry Pi from
 
 ## Progress
 
-- [x] Distance Broadcast - ROS 2 topic - node: distance_broadcast_py
+- [x] Distance Broadcast - ROS 2 topic - distance_broadcast_py
 > Note: not one of the original functions of the car, built to practice ROS 2 topics.
-- [x] Module test - ROS 2 service - node: module_test_py
+- [x] Module test - ROS 2 service - module_test_py
   - [x] Motor
   - [x] ADC Module
   - [x] Infrared Line tracking module
