@@ -1,5 +1,5 @@
 int8 order
 ---
-int32[] observation
+float32[] observation
 ---
-int32[] en_route_observation
+float32[] en_route_observation

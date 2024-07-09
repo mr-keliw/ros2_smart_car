@@ -22,7 +22,7 @@ Use ROS 2 to rebuild the functions of a 4MWD Smart Car Kit for Raspberry Pi from
   - [x] Servo
   - [x] Ultrasonic module
   - [ ] Camera (camera module not working properly in Ubnutu)
-- [ ] Light tracing Car
+- [X] Light tracing Car - ROS 2 action - light_tracing_py
 - [ ] Ultrasonic Obstacle Avoidance Car
 - [ ] Infrared Line Tracking Car
 - [ ] Smart video car
