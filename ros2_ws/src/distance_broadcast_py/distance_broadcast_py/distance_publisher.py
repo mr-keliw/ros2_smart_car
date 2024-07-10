@@ -21,39 +21,37 @@ import time
 
 from .Ultrasonic import *
 
-class MinimalPublisher(Node):
+class DistancePublisher(Node):
 
     def __init__(self):
-        super().__init__('minimal_publisher')
+        super().__init__('distance_publisher')
         self.publisher_ = self.create_publisher(String, 'topic', 10)
-        timer_period = 1  # seconds
+        timer_period = 1  # second(s)
         self.timer = self.create_timer(timer_period, self.timer_callback)
-        self.i = 0
 
-    def UltraSound(self):
+    def ultrasound(self):
         ultrasonic=Ultrasonic()
         return ultrasonic.get_distance()
 
     def timer_callback(self):
         msg = String()
-        distance = self.UltraSound()
+        distance = self.ultrasound()
         msg.data = f'Distance: {distance}'
         self.publisher_.publish(msg)
         self.get_logger().info('Publishing: "%s"' % msg.data)
-        self.i += 1
 
 
 def main(args=None):
     rclpy.init(args=args)
 
-    minimal_publisher = MinimalPublisher()
+    distance_publisher = DistancePublisher()
 
-    rclpy.spin(minimal_publisher)
+    rclpy.spin(distance_publisher)
 
     # Destroy the node explicitly
     # (optional - otherwise it will be done automatically
     # when the garbage collector destroys the node object)
-    minimal_publisher.destroy_node()
+    distance_publisher.destroy_node()
     rclpy.shutdown()
 
 

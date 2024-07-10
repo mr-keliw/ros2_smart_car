@@ -106,7 +106,6 @@ class Motor:
             print("rotating")
             time.sleep(5 * self.time_proportion * bat_compensate / 1000)
             angle -= 5
-        PWM.setMotorModel(0, 0, 0, 0)
 
 
 PWM = Motor()

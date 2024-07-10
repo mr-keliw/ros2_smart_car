@@ -7,11 +7,11 @@ from rclpy.node import Node
 from order_interfaces.action import Order
 
 
-class LightTracingActionClient(Node):
+class UltrasonicObstacleAvoidanceActionClient(Node):
 
     def __init__(self):
-        super().__init__('light_tracing_client')
-        self._action_client = ActionClient(self, Order, 'light_tracing_order')
+        super().__init__('ultrasonic_obstacle_avoidance_client')
+        self._action_client = ActionClient(self, Order, 'ultrasonic_obstacle_avoidance_order')
 
     def send_goal(self, order):
         goal_msg = Order.Goal()
@@ -47,7 +47,7 @@ class LightTracingActionClient(Node):
 def main(args=None):
     rclpy.init(args=args)
 
-    action_client = LightTracingActionClient()
+    action_client = UltrasonicObstacleAvoidanceActionClient()
 
     action_client.send_goal(int(sys.argv[1]))
 

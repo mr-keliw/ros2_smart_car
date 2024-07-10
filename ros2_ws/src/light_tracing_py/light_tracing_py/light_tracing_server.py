@@ -13,11 +13,11 @@ from .ADC import *
 class LightTracingActionServer(Node):
 
     def __init__(self):
-        super().__init__('movement_action_server')
+        super().__init__('light_tracing_server')
         self._action_server = ActionServer(
             self,
             Order,
-            'order',
+            'light_tracing_order',
             self.execute_callback)
 
     def execute_callback(self, goal_handle):
