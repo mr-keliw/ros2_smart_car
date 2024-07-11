@@ -24,7 +24,7 @@ Recreating the functionality of the Freenove 4WD Smart Car Kit for Raspberry Pi 
   - [ ] Camera (camera module not working properly in Ubnutu)
 - [X] Light tracing Car - ROS 2 action - light_tracing_py
 - [X] Ultrasonic Obstacle Avoidance Car - ROS 2 action - ultrasonic_obstacle_avoidance_py
-- [ ] Infrared Line Tracking Car
+- [X] Infrared Line Tracking Car - ROS 2 action - line_tracking_py
 - [ ] Smart video car
 
 ![photo of the smart car.](smart_car.png)
