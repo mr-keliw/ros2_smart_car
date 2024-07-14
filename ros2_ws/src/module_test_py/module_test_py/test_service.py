@@ -78,7 +78,7 @@ class ModuleTestService(Node):
                 pwm.setMotorModel(0, 0, 0, 0)
                 self.get_logger().info("\nThe test is complete.")
                 response.result = 1
-            except KeyboardInterrupt:
+            except:
                 pwm.setMotorModel(0, 0, 0, 0)
                 self.get_logger().info("\nThe test is complete.")
                 response.result = 0
@@ -89,7 +89,7 @@ class ModuleTestService(Node):
             try:
                 pwm.Rotate(0)
                 response.result = 1
-            except KeyboardInterrupt:
+            except:
                 self.get_logger().info("\nThe test is complete.")
                 response.result = 0
 
@@ -113,7 +113,7 @@ class ModuleTestService(Node):
                     self.get_logger().info("\n")
                     t_end -= 1
                 response.result = 1
-            except KeyboardInterrupt:
+            except:
                 self.get_logger().info("\nThe test is complete.")
                 response.result = 0
 
@@ -142,7 +142,7 @@ class ModuleTestService(Node):
                     ):
                         self.get_logger().info("Left")
                 response.result = 1
-            except KeyboardInterrupt:
+            except:
                 self.get_logger().info("\nThe test is complete.")
                 response.result = 0
 
@@ -165,7 +165,7 @@ class ModuleTestService(Node):
                 led.colorWipe(led.strip, Color(0, 0, 0)) # turn off the lights
                 self.get_logger().info("\nThe test is complete.")
                 response.result = 1
-            except KeyboardInterrupt:
+            except:
                 led.colorWipe(led.strip, Color(0, 0, 0)) # turn off the lights
                 self.get_logger().info("\nThe test is complete.")
                 response.result = 0
@@ -184,7 +184,7 @@ class ModuleTestService(Node):
                 buzzer.run("0")
                 self.get_logger().info("\nThe test is complete.")
                 response.result = 1
-            except KeyboardInterrupt:
+            except:
                 buzzer.run("0")
                 self.get_logger().info("\nThe test is complete.")
                 response.result = 0
@@ -210,7 +210,7 @@ class ModuleTestService(Node):
                 pwm.setServoPwm("1", 90)
 
                 response.result = 1
-            except KeyboardInterrupt:
+            except:
                 pwm.setServoPwm("0", 90)
                 pwm.setServoPwm("1", 90)
                 self.get_logger().info("\nThe test is complete.")
@@ -226,7 +226,7 @@ class ModuleTestService(Node):
                     time.sleep(1)
                     t_end -= 1
                 response.result = 1
-            except KeyboardInterrupt:
+            except:
                 self.get_logger().info("\nThe test is complete.")
                 response.result = 0
 
