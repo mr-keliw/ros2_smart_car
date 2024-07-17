@@ -7,7 +7,7 @@ from rclpy.node import Node
 from order_interfaces.action import Order
 
 import RPi.GPIO as GPIO
-from .Motor import *
+from .Motor import Motor
 
 
 class LineTrackingActionServer(Node):

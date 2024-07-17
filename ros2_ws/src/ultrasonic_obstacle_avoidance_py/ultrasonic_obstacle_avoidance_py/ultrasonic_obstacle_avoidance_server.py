@@ -7,9 +7,8 @@ from rclpy.node import Node
 from order_interfaces.action import Order
 
 import RPi.GPIO as GPIO
-from .Motor import *
-from .servo import *
-from .PCA9685 import PCA9685
+from .Motor import Motor
+from .servo import Servo
 
 
 class UltrasonicObstacleAvoidanceActionServer(Node):

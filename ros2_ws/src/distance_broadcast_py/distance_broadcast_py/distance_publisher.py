@@ -17,9 +17,7 @@ from rclpy.node import Node
 
 from std_msgs.msg import String
 
-import time
-
-from .Ultrasonic import *
+from .Ultrasonic import Ultrasonic
 
 class DistancePublisher(Node):
 

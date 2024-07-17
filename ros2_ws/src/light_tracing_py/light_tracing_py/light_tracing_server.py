@@ -6,8 +6,8 @@ from rclpy.node import Node
 
 from order_interfaces.action import Order
 
-from .Motor import *
-from .ADC import *
+from .Motor import Motor
+from .ADC import Adc
 
 
 class LightTracingActionServer(Node):
@@ -32,22 +32,22 @@ class LightTracingActionServer(Node):
 
         t_end = time.monotonic() + goal_handle.request.order
         while time.monotonic() < t_end:
-            L = adc.recvADC(0)
-            R = adc.recvADC(1)
+            left = adc.recvADC(0)
+            right = adc.recvADC(1)
 
-            feedback_msg.en_route_observation[0] = L
-            feedback_msg.en_route_observation[1] = R
+            feedback_msg.en_route_observation[0] = left
+            feedback_msg.en_route_observation[1] = right
             self.get_logger().info('Feedback: {0}'.format(feedback_msg.en_route_observation))
             goal_handle.publish_feedback(feedback_msg)
 
-            if L < 2.99 and R < 2.99 :
+            if left < 2.99 and right < 2.99 :
                 pwm.setMotorModel(600,600,600,600)
-            elif abs(L-R)<0.15:
+            elif abs(left-right)<0.15:
                 pwm.setMotorModel(0,0,0,0)
-            elif L > 3 or R > 3:
-                if L > R :
+            elif left > 3 or right > 3:
+                if left > right :
                     pwm.setMotorModel(-1200,-1200,1400,1400)
-                elif R > L :
+                elif right > left :
                     pwm.setMotorModel(1400,1400,-1200,-1200)
         pwm.setMotorModel(0,0,0,0) 
 
