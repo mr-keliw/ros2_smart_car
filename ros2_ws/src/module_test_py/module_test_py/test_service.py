@@ -78,9 +78,9 @@ class ModuleTestService(Node):
                 pwm.setMotorModel(0, 0, 0, 0)
                 self.get_logger().info("\nThe test is complete.")
                 response.result = 1
-            except:
+            except Exception as error:
                 pwm.setMotorModel(0, 0, 0, 0)
-                self.get_logger().info("\nThe test is complete.")
+                self.get_logger().info(f"\nThe test has failed. {error}")
                 response.result = 0
 
         elif request.order == 2:
@@ -89,8 +89,8 @@ class ModuleTestService(Node):
             try:
                 pwm.Rotate(0)
                 response.result = 1
-            except:
-                self.get_logger().info("\nThe test is complete.")
+            except Exception as error:
+                self.get_logger().info(f"\nThe test has failed. {error}")
                 response.result = 0
 
         elif request.order == 3:
@@ -113,8 +113,8 @@ class ModuleTestService(Node):
                     self.get_logger().info("\n")
                     t_end -= 1
                 response.result = 1
-            except:
-                self.get_logger().info("\nThe test is complete.")
+            except Exception as error:
+                self.get_logger().info(f"\nThe test has failed. {error}")
                 response.result = 0
 
         elif request.order == 4:
@@ -142,8 +142,8 @@ class ModuleTestService(Node):
                     ):
                         self.get_logger().info("Left")
                 response.result = 1
-            except:
-                self.get_logger().info("\nThe test is complete.")
+            except Exception as error:
+                self.get_logger().info(f"\nThe test has failed. {error}")
                 response.result = 0
 
         elif request.order == 5:
@@ -165,9 +165,9 @@ class ModuleTestService(Node):
                 led.colorWipe(led.strip, Color(0, 0, 0)) # turn off the lights
                 self.get_logger().info("\nThe test is complete.")
                 response.result = 1
-            except:
+            except Exception as error:
                 led.colorWipe(led.strip, Color(0, 0, 0)) # turn off the lights
-                self.get_logger().info("\nThe test is complete.")
+                self.get_logger().info(f"\nThe test has failed. {error}")
                 response.result = 0
 
         elif request.order == 6:
@@ -184,9 +184,9 @@ class ModuleTestService(Node):
                 buzzer.run("0")
                 self.get_logger().info("\nThe test is complete.")
                 response.result = 1
-            except:
+            except Exception as error:
                 buzzer.run("0")
-                self.get_logger().info("\nThe test is complete.")
+                self.get_logger().info(f"\nThe test has failed. {error}")
                 response.result = 0
 
         elif request.order == 7:
@@ -210,10 +210,10 @@ class ModuleTestService(Node):
                 pwm.setServoPwm("1", 90)
 
                 response.result = 1
-            except:
+            except Exception as error:
                 pwm.setServoPwm("0", 90)
                 pwm.setServoPwm("1", 90)
-                self.get_logger().info("\nThe test is complete.")
+                self.get_logger().info(f"\nThe test has failed. {error}")
                 response.result = 0
 
         elif request.order == 8:
@@ -226,8 +226,8 @@ class ModuleTestService(Node):
                     time.sleep(1)
                     t_end -= 1
                 response.result = 1
-            except:
-                self.get_logger().info("\nThe test is complete.")
+            except Exception as error:
+                self.get_logger().info(f"\nThe test has failed. {error}")
                 response.result = 0
 
         else:
